@@ -1,0 +1,3 @@
+[submodule "emacs.d/lisp/bison-mode"]
+	path = emacs.d/lisp/bison-mode
+	url = git@github.com:Wilfred/bison-mode.git
