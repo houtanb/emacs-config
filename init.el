@@ -33,7 +33,7 @@
   (set-default-font "Monaco"))
 
 ;; highlight current line
-(global-hl-line-mode 1)
+;(global-hl-line-mode 1)
 
 ;; show trailing whitespace
 (setq-default show-trailing-whitespace t)
