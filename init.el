@@ -35,6 +35,9 @@
 ;; highlight current line
 ;(global-hl-line-mode 1)
 
+; Set cursor color to white
+(set-cursor-color "#ffffff")
+
 ;; show trailing whitespace
 (setq-default show-trailing-whitespace t)
 
