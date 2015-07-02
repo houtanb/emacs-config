@@ -86,7 +86,7 @@
 
 ;; ido flex match
 (add-hook 'ido-setup-hook (lambda ()
-			    (setq ido-enable-flex-matching t)))
+                            (setq ido-enable-flex-matching t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -102,14 +102,43 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; MATLAB mode
+;; Octave mode
 ;;
-(autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
-(setq matlab-indent-level 4)
-(setq matlab-indent-function-body nil)
-(autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
-;; The following line makes MATLAB mode the default for editing M-files
-(setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
+;; autolad octave mode for *.m-files
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+(defun RET-behaves-as-LFD ()
+  (let ((x (key-binding "\C-j")))
+    (local-set-key "\C-m" x)))
+(add-hook 'octave-mode-hook 'RET-behaves-as-LFD)
+
+(setq octave-auto-indent t)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Font lock mode (for jit colors)
+;;
+(cond (emacs-20-p
+       ;; do lazy locking, it's quicker
+       (setq font-lock-support-mode 'lazy-lock-mode)
+       ;; more font-locking, variables for `lazy-lock-mode'
+       ;; wait 10 secs before font-locking stuff
+       (setq lazy-lock-defer-time 10
+	     ;; don't font lock as I type
+	     lazy-lock-defer-on-the-fly t
+	     ;; If I'm not doing stuff, start fontifying
+            ;; the rest of the buffer
+	     lazy-lock-stealth-time 30))
+      (emacs-21-p
+       ;; emacs 21 has jit-lock which is better
+       (setq font-lock-support-mode 'jit-lock-mode)
+       (setq jit-lock-stealth-time 16
+	     jit-lock-defer-contextually t
+	     jit-lock-stealth-nice 0.5)
+       (setq-default font-lock-multiline t)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -129,4 +158,3 @@
 (add-to-list 'auto-mode-alist '("\\.l$" . flex-mode))
 (add-to-list 'auto-mode-alist '("\\.ll$" . flex-mode))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-

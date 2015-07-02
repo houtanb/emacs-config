@@ -1,3 +1,6 @@
 [submodule "emacs.d/lisp/bison-mode"]
 	path = emacs.d/lisp/bison-mode
 	url = git@github.com:Wilfred/bison-mode.git
+[submodule "emacs.d/lisp/matlab-emacs"]
+	path = emacs.d/lisp/matlab-emacs
+	url = git@github.com:ruediger/matlab-emacs.git
