@@ -121,24 +121,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Font lock mode (for jit colors)
 ;;
-(cond (emacs-20-p
-       ;; do lazy locking, it's quicker
-       (setq font-lock-support-mode 'lazy-lock-mode)
-       ;; more font-locking, variables for `lazy-lock-mode'
-       ;; wait 10 secs before font-locking stuff
-       (setq lazy-lock-defer-time 10
-	     ;; don't font lock as I type
-	     lazy-lock-defer-on-the-fly t
-	     ;; If I'm not doing stuff, start fontifying
-            ;; the rest of the buffer
-	     lazy-lock-stealth-time 30))
-      (emacs-21-p
-       ;; emacs 21 has jit-lock which is better
-       (setq font-lock-support-mode 'jit-lock-mode)
-       (setq jit-lock-stealth-time 16
-	     jit-lock-defer-contextually t
-	     jit-lock-stealth-nice 0.5)
-       (setq-default font-lock-multiline t)))
+;; emacs 21 has jit-lock which is better
+(setq font-lock-support-mode 'jit-lock-mode)
+(setq jit-lock-stealth-time 16
+      jit-lock-defer-contextually t
+      jit-lock-stealth-nice 0.5)
+(setq-default font-lock-multiline t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
