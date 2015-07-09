@@ -105,16 +105,15 @@
 ;; Octave mode
 ;;
 ;; autolad octave mode for *.m-files
-(autoload 'octave-mode "octave-mod" nil t)
-(setq auto-mode-alist
-      (cons '("\\.m$" . octave-mode) auto-mode-alist))
-
-(defun RET-behaves-as-LFD ()
-  (let ((x (key-binding "\C-j")))
-    (local-set-key "\C-m" x)))
-(add-hook 'octave-mode-hook 'RET-behaves-as-LFD)
+(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (font-lock-mode 1)))
 
 (setq octave-auto-indent t)
+(setq octave-block-offset 4)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
