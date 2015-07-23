@@ -150,5 +150,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Julia
 ;;
-(autoload 'julia-mode "julia-mode")
+;(autoload 'julia-mode "julia-mode")
+;(add-to-list 'auto-mode-alist '("\\.jl$" . julia-mode))
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'julia-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
