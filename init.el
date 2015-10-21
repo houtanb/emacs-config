@@ -105,15 +105,23 @@
 ;; Octave mode
 ;;
 ;; autolad octave mode for *.m-files
-(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
-(add-hook 'octave-mode-hook
-          (lambda ()
-            (abbrev-mode 1)
-            (auto-fill-mode 1)
-            (font-lock-mode 1)))
+;(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+;(add-hook 'octave-mode-hook
+;          (lambda ()
+;            (abbrev-mode 1)
+;            (auto-fill-mode 1)
+;            (font-lock-mode 1)))
 
-(setq octave-auto-indent t)
-(setq octave-block-offset 4)
+;(setq octave-auto-indent t)
+;(setq octave-block-offset 4)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Matlab mode
+(load-library "matlab-load")
+;; Enable CEDET feature support for MATLAB code. (Optional)
+;    (matlab-cedet-setup)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
