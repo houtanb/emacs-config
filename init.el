@@ -22,7 +22,13 @@
 (set-fringe-style -1)
 
 ;; disable alarm bell beep
-(setq visible-bell t)
+(defun my-terminal-visible-bell ()
+  "A friendlier visual bell effect."
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil 'invert-face 'mode-line))
+
+(setq visible-bell       nil
+      ring-bell-function #'my-terminal-visible-bell)
 
 ;; disable startup screen
 (setq inhibit-startup-message t)
