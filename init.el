@@ -16,10 +16,10 @@
 ;; general settings
 ;;
 ;; no gui junk
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(tooltip-mode -1)
-(set-fringe-style -1)
+;(tool-bar-mode -1)
+;(menu-bar-mode -1)
+;(tooltip-mode -1)
+;(set-fringe-style -1)
 
 ;; disable alarm bell beep
 (defun my-terminal-visible-bell ()
@@ -57,7 +57,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; scroll with mouse wheel
-(mouse-wheel-mode t)
+;(mouse-wheel-mode t)
 
 ;; column and line numbering
 (line-number-mode 1)
@@ -169,3 +169,20 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'julia-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;; use mouse in xterm
+;; Enable mouse support
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (global-set-key [mouse-4] (lambda ()
+                              (interactive)
+                              (scroll-down 1)))
+  (global-set-key [mouse-5] (lambda ()
+                              (interactive)
+                              (scroll-up 1)))
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t)
+)
