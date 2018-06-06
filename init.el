@@ -16,6 +16,7 @@
 ;; general settings
 ;;
 ;; no gui junk
+; useful for Emacs GUI downloaded from site, not for homebrew
 ;(tool-bar-mode -1)
 ;(menu-bar-mode -1)
 ;(tooltip-mode -1)
