@@ -79,6 +79,10 @@
 (setq locale-preferred-coding-systems '((".*" . utf-8)))
 
 ;; switch between frames
+;(global-set-key (kbd "C-x <up>") 'windmove-up)
+;(global-set-key (kbd "C-x <down>") 'windmove-down)
+;(global-set-key (kbd "C-x <left>") 'windmove-left)
+;(global-set-key (kbd "C-x <right>") 'windmove-right)
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
