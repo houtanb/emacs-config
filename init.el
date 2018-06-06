@@ -17,10 +17,10 @@
 ;;
 ;; no gui junk
 ; useful for Emacs GUI downloaded from site, not for homebrew
-;(tool-bar-mode -1)
-;(menu-bar-mode -1)
-;(tooltip-mode -1)
-;(set-fringe-style -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(tooltip-mode -1)
+(set-fringe-style -1)
 
 ;; disable alarm bell beep
 (defun my-terminal-visible-bell ()
